@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .circle {
+            stroke-dasharray: 1068;
+            stroke-dashoffset: 1068;
+            transition: all 1s;
+        }
+        p {
+            font-size: 30px;
+            position: absolute;
+            left: 200px;
+            top: 160px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>1</p>
+    <svg width="440" height="440">
+        <circle cx="220" cy="220" r="170" stroke-width="50" stroke="#D1D3D7" fill="none"></circle>
+        <circle class="circle" cx="220" cy="220" r="170" stroke-width="50" stroke="red" fill="none"></circle>
+    </svg>
+    <script>
+        var circle = document.getElementsByClassName("circle")[0]
+        var p = document.getElementsByTagName("p")[0]
+        var num = 1
+        setTimeout(function () {
+            circle.style.strokeDashoffset = "267"
+        }, 10)
+        function animate() {
+            requestAnimationFrame(animate)
+            num++
+            p.innerHTML = num + "%"
+            if (num >= 75) {
+                p.innerHTML = 75 + "%"
+                cancelAnimationFrame('animate')
+            }
+        }
+        animate()
+        setTimeout('animate()', 10)
+
+    </script>
+</body>
+
+</html>
