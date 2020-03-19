@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  账号 <input type="text" id="txt"> 
+   密码<input type="password" id="pass"> 
+   <button id="btn">提交</button>
+   <script>
+       var txt=document.getElementById("txt")
+       var pass=document.getElementById("pass")
+       var btn=document.getElementById("btn")
+       btn.onclick=function(){
+localStorage.setItem("txt",txt.value)
+localStorage.setItem("pass",pass.value)
+
+       }
+       txt.value=localStorage.getItem('txt')
+pass.value=localStorage.getItem('pass')
+   </script>
+</body>
+</html>
